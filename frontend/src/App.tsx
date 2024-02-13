@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import './App.css';
-const BACKEND_BASE_URL = import.meta.env.VITE_BACKEND_BASE_URL;
+import socket from '../services/socket';
+import { BACKEND_BASE_URL } from '../constants';
 
 export default function App() {
   console.log(BACKEND_BASE_URL);
@@ -8,10 +9,13 @@ export default function App() {
     async function getHealthOfAPI() {
       const healthResponse = await fetch(`${BACKEND_BASE_URL}/health`);
       const healthData = await healthResponse.json();
-
       console.log(healthData);
     }
     getHealthOfAPI();
   }, []);
+
+  useEffect(() => {
+    socket.connect();
+  });
   return <h1>Hello from React app!</h1>;
 }
