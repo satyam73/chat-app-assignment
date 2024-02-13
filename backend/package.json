@@ -6,9 +6,12 @@
     "dev": "ts-node-dev src/app"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.4",
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "@types/cors": "^2",
     "@types/express": "^4.17.21",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3"
