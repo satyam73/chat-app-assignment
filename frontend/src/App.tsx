@@ -1,8 +1,10 @@
+import React from 'react';
 import { useEffect } from 'react';
 import './App.css';
 // import socket from '../services/socket';
 import { BACKEND_BASE_URL } from '../constants';
 import socket from 'services/socket';
+import Message from 'components/Message/Message';
 
 export default function App() {
   console.log(BACKEND_BASE_URL);
@@ -18,5 +20,9 @@ export default function App() {
   useEffect(() => {
     socket.connect();
   });
-  return <h1>Hello from React app!</h1>;
+  return (
+    <h1>
+      <Message message='hello' className='right' />
+    </h1>
+  );
 }

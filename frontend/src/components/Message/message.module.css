@@ -1,0 +1,32 @@
+.message {
+  height: fit-content;
+  width: fit-content;
+  border-radius: 10px;
+  font-weight: 500;
+  padding-right: 7px;
+  padding-left: 7px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  max-width: 70%;
+  margin: 10px;
+  margin-top: 0;
+  font-size: 1rem;
+}
+
+@media (width <=425px) {
+  .message {
+    max-width: 280px;
+  }
+}
+
+.left {
+  float: left;
+  clear: both;
+  background-color: var(--color-bluish-light-grey);
+}
+
+.right {
+  float: right;
+  clear: both;
+  background-color: var(--primary-color-light) !important;
+}
