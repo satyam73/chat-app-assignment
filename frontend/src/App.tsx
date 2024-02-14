@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import './App.css';
-import socket from '../services/socket';
+// import socket from '../services/socket';
 import { BACKEND_BASE_URL } from '../constants';
+import socket from 'services/socket';
 
 export default function App() {
   console.log(BACKEND_BASE_URL);
