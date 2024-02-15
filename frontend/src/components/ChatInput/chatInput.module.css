@@ -1,0 +1,28 @@
+.chat-input {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  border: 2px solid var(--color-gray-300);
+  width: 100%;
+  gap: 10px;
+  padding: 10px;
+  background-color: white;
+}
+
+.chat-input .chat-input__input {
+  display: block;
+  font-size: 1rem;
+  padding: 7px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+  flex-grow: 9;
+}
+
+.chat-input .chat-input__input:focus {
+  outline: 2px solid var(--primary-color);
+}
+
+.chat-input .chat-input__send-button {
+  color: var(--primary-color);
+}
