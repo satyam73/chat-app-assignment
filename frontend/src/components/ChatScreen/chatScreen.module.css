@@ -12,12 +12,26 @@
 .chat-screen__users {
   width: 30%;
   border-right: 2px solid var(--color-gray-300);
+  padding: 30px;
+  text-align: left;
+}
+
+.chat-screen__users .chat-screen__users-heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.chat-screen__users-mapping .chat-screen__user {
+  font-weight: 600;
+  word-break: break-word;
 }
 
 .chat-screen__messages {
   width: 70%;
   position: relative;
 }
+
 
 .chat-screen__messages-list {
   overflow-y: scroll;

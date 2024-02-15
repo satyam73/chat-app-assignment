@@ -1,4 +1,4 @@
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import styles from './chatScreen.module.css';
 import MessageComponent from '../Message/Message';
 import ChatInput from '../ChatInput/ChatInput';
@@ -32,22 +32,35 @@ export default function ChatScreen({
     inputRef.current!.value = '';
   }
 
+  const usersMapping = activeUsers?.map((user: User) => (
+    <li className={styles['chat-screen__user']} key={user.id}>
+      {user.name}
+    </li>
+  ));
+
+  const messagesMapping = messages?.map((message: Message) => (
+    <MessageComponent
+      key={message.id}
+      message={`${message.user.name}: ${message.message}`}
+      className={selfUser?.id == message?.user?.id ? 'right' : 'left'}
+    />
+  ));
   return (
     <Box className={styles['chat-screen']}>
       <Box className={styles['chat-screen__users']}>
-        {activeUsers?.map((user: User) => (
-          <li key={user.id}>{user.name}</li>
-        ))}
+        <Typography
+          variant='h1'
+          className={styles['chat-screen__users-heading']}
+        >
+          Active Users
+        </Typography>
+        <Box className={styles['chat-screen__users-mapping']}>
+          {usersMapping}
+        </Box>
       </Box>
       <Box className={styles['chat-screen__messages']}>
         <Box className={styles['chat-screen__messages-list']}>
-          {messages?.map((message: Message) => (
-            <MessageComponent
-              key={message.id}
-              message={`${message.user.name}: ${message.message}`}
-              className={selfUser?.id == message?.user?.id ? 'right' : 'left'}
-            />
-          ))}
+          {messagesMapping}
         </Box>
         <ChatInput inputRef={inputRef} onMessageSend={messageSendHandler} />
       </Box>
