@@ -6,6 +6,8 @@
 - Node
 - NPM
 
+> Note: Since the backend for this project is hosted on [Render](https://render.com/) free service, it takes time to boot up the service. 
+
 ## Steps to run project locally
 - Clone the repo by running command,
 ```
