@@ -16,9 +16,10 @@ export default function InputBox({
       <input
         ref={inputRef}
         aria-labelledby={label}
-        type='text'
+        type={type}
         name={name}
         id={id}
+        placeholder={placeholder}
         className={styles['input-box__input']}
       />
     </Box>
