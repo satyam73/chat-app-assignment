@@ -12,8 +12,12 @@
   color-scheme: light dark;
   color: #242424;
   background-color: rgba(255, 255, 255, 0.87);
+  --primary-color: #38bdf8;
   --color-bluish-light-grey: #E7ECF0;
-  --primary-color-light: #e1fffd;
+  --color-sky-100: #e0f2fe;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  /* --primary-color-light: #e1fffd; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

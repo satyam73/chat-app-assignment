@@ -1,0 +1,26 @@
+.input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.input-box .input-box__label {
+  display: block;
+  text-align: left;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.input-box .input-box__input {
+  display: block;
+  font-size: 1rem;
+  padding: 7px;
+  border: 2px solid var(--primary-color);
+  border-radius: 10px;
+}
+
+.input-box .input-box__input:focus {
+  border: none;
+  outline: 3px solid var(--primary-color);
+}
