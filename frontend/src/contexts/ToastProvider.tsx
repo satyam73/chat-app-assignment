@@ -1,11 +1,26 @@
 import { createContext, useContext, useState } from 'react';
 import { Alert, Snackbar } from '@mui/material';
-import { ToastContextProps, ToastProviderProps } from './toastProvider.types';
+import {
+  DefaultToast,
+  ToastContextProps,
+  ToastDetails,
+  ToastProviderProps,
+} from './toastProvider.types';
 
-const ToastContext = createContext<ToastContextProps | null>(null);
+const initialValue: DefaultToast = {
+  toast: {
+    isVisible: false,
+    text: '',
+    type: 'info',
+    hideDuration: 3000,
+    position: { vertical: 'top', horizontal: 'right' },
+  },
+  showToast: () => {},
+};
+const ToastContext = createContext<ToastContextProps>(initialValue);
 
 export default function ToastProvider({ children }: ToastProviderProps) {
-  const [toastDetails, setToastDetails] = useState({
+  const [toastDetails, setToastDetails] = useState<ToastDetails>({
     isVisible: false,
     text: '',
     type: 'info',
