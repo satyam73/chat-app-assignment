@@ -1,5 +1,7 @@
 import { Box } from '@mui/material';
+import { InputBoxProps } from './inputBox.types';
 import styles from './inputBox.module.css';
+
 export default function InputBox({
   id,
   name,
