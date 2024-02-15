@@ -1,5 +1,8 @@
 import React, { SetStateAction } from 'react';
-
+export type UserLeft = {
+  leftUser: User;
+  activeUsers?: User[];
+};
 export type User = { name: string; id: string };
 export type Message = {
   id: string;

@@ -4,7 +4,8 @@ import MessageComponent from '../Message/Message';
 import ChatInput from '../ChatInput/ChatInput';
 import { useEffect, useRef } from 'react';
 import socket from '@/src/services/socket';
-import { ChatScreenProps, Message, User } from './chatScreen.types';
+import { ChatScreenProps, Message, User, UserLeft } from './chatScreen.types';
+import { useToastMethods } from '@/src/contexts/ToastProvider';
 
 export default function ChatScreen({
   activeUsers,
@@ -13,13 +14,32 @@ export default function ChatScreen({
   selfUser,
 }: ChatScreenProps) {
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const { notifyInfo } = useToastMethods();
 
   useEffect(() => {
-    socket.on('receive-message', (message: Message) => {
+    const onMessageReceive = (message: Message) => {
       setMessages((prevMessages: Message[]): Message[] => {
         return [...prevMessages, message];
       });
-    });
+    };
+
+    socket.on('receive-message', onMessageReceive);
+
+    return () => {
+      socket.off('receive-message', onMessageReceive);
+    };
+  }, []);
+
+  useEffect(() => {
+    const userLeft = ({ leftUser }: UserLeft) => {
+      notifyInfo(`${leftUser.name} left the chat`);
+    };
+
+    socket.on('user-left', userLeft);
+
+    return () => {
+      socket.off('user-left', userLeft);
+    };
   }, []);
 
   function messageSendHandler() {
