@@ -28,5 +28,5 @@
 .right {
   float: right;
   clear: both;
-  background-color: var(--primary-color-light) !important;
+  background-color: var(--color-sky-100) !important;
 }
