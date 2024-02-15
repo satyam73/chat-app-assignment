@@ -6,5 +6,5 @@ export type InputBoxProps = {
   label: string;
   type: string;
   placeholder: string;
-  inputRef: RefObject<HTMLInputElement>;
+  inputRef: RefObject<HTMLInputElement> | null;
 };

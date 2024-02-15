@@ -1,9 +1,13 @@
-import { Box, Button, Typography } from '@mui/material';
-import styles from './onboardingForm.module.css';
-import InputBox from '../InputBox/InputBox';
 import { useRef } from 'react';
-export default function OnboardingForm() {
-  const inputRef = useRef();
+import { Box, Button, Typography } from '@mui/material';
+import { OnboardingFormProps } from './onboardingForm.types';
+import InputBox from '../InputBox/InputBox';
+import styles from './onboardingForm.module.css';
+
+export default function OnboardingForm({
+  inputRef,
+  onStart,
+}: OnboardingFormProps) {
   return (
     <Box className={styles['onboarding-form']}>
       <Typography variant='h1' className={styles['onboarding-form__heading']}>
@@ -19,6 +23,7 @@ export default function OnboardingForm() {
           inputRef={inputRef}
         />
         <Button
+          onClick={onStart}
           variant='contained'
           className={styles['onboarding-form__button']}
         >
