@@ -1,3 +1,4 @@
+import { SnackbarOrigin } from '@mui/material';
 import { ReactNode } from 'react';
 export type ToastContextProps = {
   toast: {
@@ -22,5 +23,12 @@ export type ToastContextProps = {
       };
     }>
   >;
+};
+export type ToastDetails = {
+  isVisible: boolean;
+  text: string;
+  type: 'success' | 'info' | 'warning' | 'error';
+  hideDuration: 3000;
+  position: SnackbarOrigin;
 };
 export type ToastProviderProps = { children: ReactNode };
