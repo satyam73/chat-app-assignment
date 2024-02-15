@@ -6,6 +6,7 @@ import { UserJoined, UserLeft } from './mainScreen.types';
 
 import OnboardingForm from 'components/OnboardingForm/OnboardingForm';
 import ChatScreen from 'components/ChatScreen/ChatScreen';
+import { useToastMethods } from '@/src/contexts/ToastProvider';
 
 export default function MainScreen() {
   const [isConnected, setIsConnected] = useState<boolean>(false);
@@ -13,6 +14,7 @@ export default function MainScreen() {
   const [messages, setMessages] = useState<Message[] | []>([]);
   const [selfUser, setSelfUser] = useState<User | null>(null);
   const [activeUsers, setActiveUsers] = useState<User[] | null>(null);
+  const { notifyInfo } = useToastMethods();
 
   function startHandler() {
     const sanitizedName = inputNameRef?.current?.value?.trim();
@@ -25,6 +27,7 @@ export default function MainScreen() {
       setSelfUser({ id: socket.id!, name: sanitizedName! });
       setIsConnected(true);
       inputNameRef.current!.value = '';
+      notifyInfo('Successfully joined the chat!');
     }
   }
 
