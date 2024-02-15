@@ -60,6 +60,8 @@ yarn dev
 ```
 - Congratulations🥳, you have successfully running project now!
 
+> Note: I have enabled origin by `*` in backend which means for any endpoint, since I have hosted frontend and backend separately without same domain, ideally we should avoid this. 
+
 Still having issues?
 Drop a message to me,
 
