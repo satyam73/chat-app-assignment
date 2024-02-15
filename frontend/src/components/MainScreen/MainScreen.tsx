@@ -1,9 +1,11 @@
-import { MouseEvent, useEffect, useRef, useState } from 'react';
-import OnboardingForm from 'components/OnboardingForm/OnboardingForm';
-import ChatScreen from 'components/ChatScreen/ChatScreen';
+import { useEffect, useRef, useState } from 'react';
 import socket from '@/src/services/socket';
+
 import { Message, User } from '../ChatScreen/chatScreen.types';
 import { UserJoined, UserLeft } from './mainScreen.types';
+
+import OnboardingForm from 'components/OnboardingForm/OnboardingForm';
+import ChatScreen from 'components/ChatScreen/ChatScreen';
 
 export default function MainScreen() {
   const [isConnected, setIsConnected] = useState<boolean>(false);
@@ -12,7 +14,7 @@ export default function MainScreen() {
   const [selfUser, setSelfUser] = useState<User | null>(null);
   const [activeUsers, setActiveUsers] = useState<User[] | null>(null);
 
-  function startHandler(e: MouseEvent<HTMLElement>) {
+  function startHandler() {
     const sanitizedName = inputNameRef?.current?.value?.trim();
     if (!sanitizedName) return alert('Please enter valid name!');
 
@@ -22,16 +24,16 @@ export default function MainScreen() {
     if (socket.connected) {
       setSelfUser({ id: socket.id!, name: sanitizedName! });
       setIsConnected(true);
-      inputNameRef.current.value = '';
+      inputNameRef.current!.value = '';
     }
   }
 
   useEffect(() => {
-    const onUserJoined = ({ activeUsers, newUser }: UserJoined) => {
+    const onUserJoined = ({ activeUsers }: UserJoined) => {
       setActiveUsers(activeUsers);
     };
 
-    const onUserLeft = ({ activeUsers, leftUser }: UserLeft) => {
+    const onUserLeft = ({ activeUsers }: UserLeft) => {
       setActiveUsers(activeUsers);
     };
     socket.on('user-joined', onUserJoined);

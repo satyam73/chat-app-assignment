@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { Box, Button, Typography } from '@mui/material';
 import { OnboardingFormProps } from './onboardingForm.types';
 import InputBox from '../InputBox/InputBox';

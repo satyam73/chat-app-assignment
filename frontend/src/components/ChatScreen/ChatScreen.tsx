@@ -29,7 +29,7 @@ export default function ChatScreen({
     if (!sanitizedMessage) return;
 
     socket.emit('send-message', sanitizedMessage);
-    inputRef.current.value = '';
+    inputRef.current!.value = '';
   }
 
   return (

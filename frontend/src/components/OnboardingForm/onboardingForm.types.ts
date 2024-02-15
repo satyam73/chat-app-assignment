@@ -1,6 +1,6 @@
-import { MouseEvent, MutableRefObject, RefObject } from 'react';
+import { RefObject } from 'react';
 
 export type OnboardingFormProps = {
-  inputRef: RefObject<HTMLElement> | null;
-  onStart: (e: MouseEvent<HTMLElement>) => void;
+  inputRef: RefObject<HTMLInputElement> | null;
+  onStart: () => void;
 };
